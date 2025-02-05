@@ -138,14 +138,14 @@ export default
         },
         __checkDownloadFolder: function (callback) {
             var self = this;
-            const rrConfig = this._getRrConfig();
-            const config = rrConfig.rr_manager_config;
             self.apiProvider.getSharesList().then(x => {
                 var shareName = `/${config['SHARE_NAME']}`;
                 var sharesList = x.shares;
                 localStorage.setItem('sharesList', JSON.stringify(sharesList));
                 var downloadsShareMetadata = sharesList.find(x => x.path.toLowerCase() == shareName.toLowerCase());
                 if (!downloadsShareMetadata) {
+                    const rrConfig = this._getRrConfig();
+                    const config = rrConfig.rr_manager_config;
                     var msg = this.formatString(this.helper.V('ui', 'share_notfound_msg'), config['SHARE_NAME']);
                     self.appWin.setStatusBusy({ text: this.helper.V('ui', 'checking_dependencies_loader') });
                     self.showMsg(msg);
