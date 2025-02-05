@@ -138,9 +138,9 @@ export default
         },
         __checkDownloadFolder: function (callback) {
             var self = this;
-            const rrConfig = this._getRrConfig();
-            const config = rrConfig.rr_manager_config;
             self.apiProvider.getSharesList().then(x => {
+                const rrConfig = this._getRrConfig();
+                const config = rrConfig.rr_manager_config;
                 var shareName = `/${config['SHARE_NAME']}`;
                 var sharesList = x.shares;
                 localStorage.setItem('sharesList', JSON.stringify(sharesList));
