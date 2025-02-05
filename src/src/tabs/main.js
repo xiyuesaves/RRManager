@@ -139,6 +139,7 @@ export default
         __checkDownloadFolder: function (callback) {
             var self = this;
             const rrConfig = this._getRrConfig();
+            console.log("取值1");
             const config = rrConfig.rr_manager_config;
             self.apiProvider.getSharesList().then(x => {
                 var shareName = `/${config['SHARE_NAME']}`;
@@ -311,6 +312,7 @@ export default
                         Ext.apply(data, self.data);
                         if (!self.installed) {
                             //create rr tmp folder
+                            console.log("取值2");
                             self.rrManagerConfig = self.rrConfig.rr_manager_config;
                             SYNO.API.currentManager.requestAPI('SYNO.FileStation.CreateFolder', "create", "2", {
                                 folder_path: `/${self.rrManagerConfig.SHARE_NAME}`,

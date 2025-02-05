@@ -48,7 +48,7 @@ jobs:
               make arch-${{ matrix.target }}
       - name: Release
         uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
+        # if: startsWith(github.ref, 'refs/tags/')
         with:
           files: packages/*.spk
       - name: Save Primes

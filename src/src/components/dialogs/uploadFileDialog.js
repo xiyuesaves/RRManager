@@ -129,6 +129,7 @@ export default
         onUploadFile: function (file) {
             let rrConfigJson = localStorage.getItem('rrConfig');
             let rrConfig = JSON.parse(rrConfigJson);
+            console.log("取值3");
             let rrManagerConfig = rrConfig.rr_manager_config;
             this.opts.params.path = `/${rrManagerConfig.SHARE_NAME}/${rrManagerConfig.RR_TMP_DIR}`;
             let isChunkMode = false;
